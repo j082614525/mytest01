@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>linkman的添加页面</title>
+    <script src="js/axios-0.18.0.js"></script>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <form>
+            姓名<input type="text" name="name" v-model="linkman.name"><br>
+            性别<input type="radio" name="sex" v-model="linkman.sex" value="男">男
+            <input type="radio" name="sex" v-model="linkman.sex" value="女">女<br>
+            年龄<input type="text" v-model="linkman.age" name="age"><br>
+            地址<input type="text" v-model="linkman.address" name="address"><br>
+            qq<input type="text" v-model="linkman.qq" name="qq"><br>
+            email<input type="text" v-model="linkman.email" name="email"><br>
+
+            <input type="button" value="添加" @click="addLinkman">
+        </form>
+    </div>
+    <script>
+        let vue = new Vue({
+           el:"#app",
+           data:{
+               linkman:{}
+           },
+            methods:{
+               add(){
+                   //发送异步请求，提交联系人的信息
+                   axios.post("/linkman/add.do",this.linkman).then(response=>{
+                       if (response.data.flag) {
+                           //添加成功
+                           //跳转到展示页面
+                           location.href = "/linkman_list.html"
+                       }
+                   })
+               }
+            }
+        });
+    </script>
+</body>
+</html>

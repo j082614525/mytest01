@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="day01_linkman:war">
+    <output-path>F:/itheima95qiwenjian/day14_springmvc_01/代码/day01_linkman/target</output-path>
+    <root id="archive" name="day01_linkman-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="day01_linkman:war exploded" />
+    </root>
+  </artifact>
+</component>
